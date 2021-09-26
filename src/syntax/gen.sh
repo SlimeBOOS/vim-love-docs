@@ -4,8 +4,10 @@
 pushd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" > /dev/null
 
 # Quit on errors and unset vars
-set -o errexit
-set -o nounset
+# set -o errexit
+# set -o nounset
+
+echo Generating syntax
 
 # Copy love-api to child directories
 cp -rf love-api love-conf
@@ -19,8 +21,8 @@ mkdir -p ../../after/syntax
 cp help.vim ../../after/syntax/.
 
 # Create syntax files
-$lua lua/main.lua > ../../after/syntax/lua.vim
-$lua love-conf/main.lua > ../../after/syntax/love-conf.vim
+lua5.3 lua/main.lua > ../../after/syntax/lua.vim
+lua5.3 love-conf/main.lua > ../../after/syntax/love-conf.vim
 
 # Cleanup
 rm -rf love-api

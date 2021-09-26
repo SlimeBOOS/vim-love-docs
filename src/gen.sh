@@ -4,8 +4,8 @@
 pushd "$(dirname "$0")" > /dev/null
 
 # Quit on errors and unset vars
-set -o errexit
-set -o nounset
+# set -o errexit
+# set -o nounset
 
 # Read in env.txt
 while read var; do
@@ -19,7 +19,7 @@ export vim=${vim:-vim}
 
 # Remove the old love-api and clone in the new one
 rm -rf love-api
-$git clone https://github.com/love2d-community/love-api
+git clone https://github.com/love2d-community/love-api
 
 # Copy love-api to the specified directories
 cp -rf love-api syntax
